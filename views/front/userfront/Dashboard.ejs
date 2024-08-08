@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<%-include('./common/head')%>
+
+<body>
+
+  <!-- header section strats -->
+  <%-include('./common/nav')%>
+  <!-- end header section -->
+
+                <!--User Order Details  -->
+                <div class="container">
+                    <h2 style="text-align: center; background-color: bisque;">User Order Details</h2>
+                    <table class="table table-striped" border="1px" style="text-align: center;">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Product  Name</th>
+                            <th scope="col">Product <br> Details</th>
+                            <th scope="col">Product Price</th>
+                            <th scope="col">Product Images</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <%if(Userorder.length>0){%>
+                            <% let id=0 %>
+                            <% for(let order of Userorder){%>
+                              <th scope="row"><%=++id%></th>
+                            <td><%=order.UserId.name%></td>
+                            <td><%=order.Productname%></td>
+                            <td><%=order.productDetails%></td>
+                            <td><%=order.productPrice%></td>
+                            <td><img src="/<%=order.images%>" alt="" height="70px"></td>
+                          </tr>
+                            <%}}else{%>
+                             <div class="alert alert-danger"><h5 style="text-align: center;">You Have not placed any order..</h5></div> 
+                            <%}%>
+                          
+                        </tbody>
+                      </table>     
+                </div>
+                       
+
+ 
+
+  
+
+  <!-- info section -->
+  <%-include('./common/info')%>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <%-include('./common/footer')%>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/front/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/front/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/front/js/custom.js"></script>
+
+</body>
+
+</html>

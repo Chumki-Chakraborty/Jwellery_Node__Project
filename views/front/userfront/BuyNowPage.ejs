@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<%-include('./common/head')%>
+
+<body>
+
+  <!-- header section strats -->
+  <%-include('./common/nav')%>
+  <!-- end header section -->
+
+                <!--User Order Details  -->
+                <div class="container">
+                  <% if(message.length>0){%>
+                    <div class="alert alert-success">
+                      <%=message%>
+                     <a href="/USER/Dashboard/<%=data._id%>"><h5>Track your order Details please visit Dashboard page..</h5></a>
+                <%}%>
+               
+                </div>
+               
+
+ 
+
+  
+
+  <!-- info section -->
+  <%-include('./common/info')%>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <%-include('./common/footer')%>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/front/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/front/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/front/js/custom.js"></script>
+
+</body>
+
+</html>

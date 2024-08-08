@@ -1,0 +1,16 @@
+const express=require('express')
+const { Product_page, Addproduct_page, Admin_post_product, Admin_edit_Product, Admin_Update_Product, Admin_delete_product } = require('../../../controller/admin/dashboard_controller/products')
+const adminProduct=express.Router()
+const productimg=require('../../../utilits/productimg')
+const { jwt_adminauth } = require('../../../middleware/auth')
+const { Admin_AuthCheck } = require('../../../controller/admin/admin_auth_controller/admin_allauth')
+adminProduct.get('/product',jwt_adminauth,Admin_AuthCheck,Product_page)
+adminProduct.get('/addproduct',jwt_adminauth,Admin_AuthCheck,Addproduct_page)
+// adminProduct.post('/post/product',Admin_post_product)
+adminProduct.post('/post/product',productimg.single('images'),Admin_post_product)
+adminProduct.get('/editproduct/:id',jwt_adminauth,Admin_AuthCheck,Admin_edit_Product)
+// adminProduct.post('/update/product/:id',Admin_Update_Product)
+adminProduct.post('/update/product/:id',productimg.single('images'),Admin_Update_Product)
+adminProduct.get('/delete/product/:id',jwt_adminauth,Admin_AuthCheck,Admin_delete_product)
+
+module.exports=adminProduct

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<%-include('./common/head')%>
+
+<body>
+
+  <!-- header section strats -->
+  <%-include('./common/nav')%>
+   
+  <!-- end header section -->
+
+  <section class="blog_section layout_padding">
+    <div class="container">
+        <div class="heading_container col-md-8">
+            <h2>
+                Latest Product
+            </h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-8">
+<div class="box">
+<div class="img-box">
+  <img src="/<%=singledata.images%>" alt="" height="400px">
+  
+  
+  
+    
+  <h4 class="blog_date">
+    $- <%=singledata.productPrice%>
+  </h4>
+</div>
+<div class="detail-box">
+  <h5>
+    <%=singledata.Productname%>
+  </h5>
+  <p>
+    <%=singledata.productDetails%>
+  </p>
+  <!--  -->
+  <%if(message.length>0){%>
+    <div class="alert alert-success">
+      <%=message%>
+    </div>
+  <%}%>
+  
+ <!-- <a href="/admin/buynow/<%=singledata._id%>" class="btn btn-primary" style="font-size: 30px;">BuyNow</a>  -->
+ <form action="/USER/add/buynow/<%=singledata._id%>" method="post">
+  <input type="hidden" value="<%=data._id%>" name="UserId">
+  <input type="hidden" value="<%=singledata.Productname%>" name="Productname">
+  <input type="hidden" value="<%=singledata.productDetails%>" name="productDetails">
+  <input type="hidden" value="<%=singledata.productPrice%>" name="productPrice">
+  <input type="hidden" value="<%=singledata.images%>" name="images">
+
+  <button type="submit" class="btn btn-primary" style="font-size: 15px;">Buy Now</button>
+ </form> 
+ <br>
+  <div class="btn-box">
+    <a href="/USER/user/shop">
+      View All Products
+    </a>
+  </div>
+  
+</div>
+  <!--  -->
+</div>
+</div>
+</div>
+        </div>
+    </div>
+</section>
+
+ 
+
+  
+
+  <!-- info section -->
+  <%-include('./common/info')%>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <%-include('./common/footer')%>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/front/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/front/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/front/js/custom.js"></script>
+
+</body>
+
+</html>
